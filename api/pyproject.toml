@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=80.9", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "resume-api"
+version = "0.1.0"
+description = "FastAPI auth service."
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi-users[sqlalchemy]>=14.0",
+    "gunicorn>=23.0",
+    "uvicorn>=0.35",
+    "python-dotenv>=1.1",
+    "alembic>=1.16",
+    "asyncpg>=0.30",
+]
+
+[project.optional-dependencies]
+dev = ["ruff", "pre-commit", "pipdeptree"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "ASYNC"]
+exclude = ["venv", "__pycache__", "**/alembic/**"]
+
+[tool.ruff.lint.pycodestyle]
+max-line-length = 79
