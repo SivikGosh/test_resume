@@ -1,10 +1,10 @@
-__all__ = ('router',)
+__all__ = ('router', 'current_user')
 
 from fastapi import APIRouter
 
-from api.src.users.schemas import UserCreate, UserRead
+from src.users.schemas import UserCreate, UserRead
 
-from .router import cookie_jwt_backend
+from .router import cookie_jwt_backend, current_user
 from .router import router as auth_router
 
 router = APIRouter()

@@ -2,7 +2,7 @@ __all__ = ('router',)
 
 from fastapi import APIRouter
 
-from api.src.auth.router import router as auth_router
+from src.auth.router import router as auth_router
 
 from .schemas import UserRead, UserUpdate
 

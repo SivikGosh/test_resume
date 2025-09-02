@@ -1,8 +1,10 @@
+from typing import List
+
 from fastapi_users.db import SQLAlchemyBaseUserTable
 from sqlalchemy import Integer, String
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
-from api.src.database import Base
+from src.database import Base
 
 
 class User(SQLAlchemyBaseUserTable, Base):
@@ -18,4 +20,9 @@ class User(SQLAlchemyBaseUserTable, Base):
         unique=True,
         index=True,
         nullable=False,
+    )
+
+    resumes: Mapped[List['Resume']] = relationship(  # noqa: F821
+        back_populates='user',
+        cascade='all, delete-orphan',
     )

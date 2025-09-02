@@ -6,6 +6,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from .auth import router as auth_router
 from .config import SITE_URL
 from .dependencies import get_async_db
+from .resumes import router as resumes_router
 from .users import router as users_router
 
 app = FastAPI(
@@ -24,7 +25,7 @@ app.add_middleware(
 
 app.include_router(auth_router)
 app.include_router(users_router)
-
+app.include_router(resumes_router)
 
 @app.get('/')
 async def init(db: AsyncSession = Depends(get_async_db)):
