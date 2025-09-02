@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "resume-api"
-version = "0.2.0"
+version = "1.0.0"
 description = "FastAPI auth service."
 requires-python = ">=3.12"
 dependencies = [
@@ -14,6 +14,8 @@ dependencies = [
     "python-dotenv>=1.1",
     "alembic>=1.16",
     "asyncpg>=0.30",
+    # "langchain-community>=0.3",
+    # "langchain-ollama>=0.3",
 ]
 
 [project.optional-dependencies]

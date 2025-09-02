@@ -12,5 +12,18 @@ services:
     volumes:
       - db_data:/var/lib/postgresql/data
 
+  # llm:
+  #   image: ollama/ollama:0.11.8
+  #   container_name: 'resume-llm'
+  #   ports:
+  #     - 11434:11434
+  #   dns:
+  #     - 8.8.8.8
+  #     - 1.1.1.1
+  #   volumes:
+  #     - llm_data:/root/.ollama
+  #   restart: unless-stoppeds
+
 volumes:
   db_data:
+  # llm_data:

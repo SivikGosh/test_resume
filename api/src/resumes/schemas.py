@@ -16,3 +16,8 @@ class ResumeDetailSchema(BaseModel):
 class ResumeUpdateSchema(BaseModel):
     title: Optional[str] = None
     content: Optional[str] = None
+
+
+class ResumeImproveSchema(BaseModel):
+    original_content: str
+    improved_content: str

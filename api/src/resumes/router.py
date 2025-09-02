@@ -11,7 +11,13 @@ from src.dependencies import get_async_db
 from src.users.models import User
 
 from .models import Resume
-from .schemas import ResumeDetailSchema, ResumeSchema, ResumeUpdateSchema
+from .schemas import (
+    ResumeDetailSchema,
+    ResumeImproveSchema,
+    ResumeSchema,
+    ResumeUpdateSchema,
+)
+from .utils import improve_resume
 
 router = APIRouter(prefix='/resumes', tags=['Resumes'])
 
@@ -126,3 +132,16 @@ async def delete_resume(
     await db.delete(resume)
     await db.commit()
     return {'detail': 'Resume deleted'}
+
+
+@router.get('/{id}/improve', response_model=ResumeImproveSchema)
+async def get_improve_resume(
+    id: int,
+    user: User = Depends(current_user),
+    db: AsyncSession = Depends(get_async_db),
+):
+    resume = await db.get(Resume, id)
+    if not resume or resume.user_id is not user.id:
+        raise HTTPException(HTTPStatus.NOT_FOUND, 'Resume not found.')
+    improved_result = improve_resume(resume.content)
+    return improved_result
