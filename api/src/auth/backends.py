@@ -13,6 +13,7 @@ def get_cookie_jwt_backend(
         cookie_name='cookie',
         cookie_max_age=lifetime_age_seconds,
         cookie_secure=False,
+        cookie_samesite='lax',
     )
     def get_strategy():
         return JWTStrategy(secret_key, lifetime_age_seconds)

@@ -12,12 +12,13 @@ from .users import router as users_router
 app = FastAPI(
     title='Resume API',
     version='0.1.0',
-    swagger_ui_parameters={'withCredentials': True}
+    swagger_ui_parameters={'withCredentials': True},
+    root_path='/api',
 )
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[SITE_URL + ':3000'],
+    allow_origins=[SITE_URL],
     allow_credentials=True,
     allow_methods=['*'],
     allow_headers=['*'],
