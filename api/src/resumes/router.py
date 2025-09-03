@@ -24,7 +24,7 @@ router = APIRouter(prefix='/resumes', tags=['Resumes'])
 
 @router.post(
     path='/',
-    response_model=ResumeDetailSchema,
+    response_model=ResumeSchema,
     status_code=HTTPStatus.CREATED,
 )
 async def create_resume(
