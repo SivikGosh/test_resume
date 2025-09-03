@@ -32,7 +32,7 @@
   font-family: Arial, sans-serif;
 }
 
-form {
+.container form {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -43,19 +43,20 @@ form {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-input {
+.container input {
     padding: 5px;
     border: 1px solid #ccc;
     border-radius: 20px;
     font-size: 13px;
+    margin: 0;
 }
 
-input:focus {
+.container input:focus {
   border-color: #007bff;
   outline: none;
 }
 
-button {
+.container button {
   padding: 10px;
   background-color: #4983c1;
   color: white;
@@ -65,11 +66,11 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.container button:hover {
   background-color: #0056b3;
 }
 
-p {
+.container p {
   color: red;
   font-size: 13px;
   margin: 0;
