@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 
 import Auth from './components/Auth';
 import Resumes from './components/Resumes';
+import ResumeDetails from './components/ResumeDetails';
 import { PrivateRoute } from './components/PrivateRoute';
 import { PublicRoute } from './components/PublicRoute';
 
@@ -19,6 +20,11 @@ function App() {
       <Route path="/resumes" element={
         <PrivateRoute>
           <Resumes />
+        </PrivateRoute>
+      } />
+      <Route path="/resumes/:id" element={
+        <PrivateRoute>
+          <ResumeDetails />
         </PrivateRoute>
       } />
     </Routes>
