@@ -16,7 +16,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const fetchCurrentUser = async () => {
       try {
-        const res = await fetch(`${BASE_URL}/users/me`, {
+        const res = await fetch(`${BASE_URL}/api/users/me`, {
           credentials: "include",
         });
         if (res.ok) {
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    await fetch(`${BASE_URL}/auth/jwt/logout`, {
+    await fetch(`${BASE_URL}/api/auth/jwt/logout`, {
       method: "POST",
       credentials: "include",
     });

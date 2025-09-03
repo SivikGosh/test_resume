@@ -1,7 +1,7 @@
 import { BASE_URL } from "../config";
 
 export async function addResume(data) {
-  const response = await fetch(`${BASE_URL}/resumes`, {
+  const response = await fetch(`${BASE_URL}/api/resumes`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
@@ -12,7 +12,7 @@ export async function addResume(data) {
 }
 
 export async function getResumes() {
-  const response = await fetch(`${BASE_URL}/resumes`, {
+  const response = await fetch(`${BASE_URL}/api/resumes`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -25,7 +25,7 @@ export async function getResumes() {
 }
 
 export async function getResumeDetails(id) {
-  const response = await fetch(`${BASE_URL}/resumes/${id}`, {
+  const response = await fetch(`${BASE_URL}/api/resumes/${id}`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ export async function getResumeDetails(id) {
 }
 
 export async function getImprovedResume(id) {
-  const response = await fetch(`${BASE_URL}/resumes/${id}/improve`, {
+  const response = await fetch(`${BASE_URL}/api/resumes/${id}/improve`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
