@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
+import styles from "./ResumeDetails.module.css";
 import { AuthContext } from "../contexts/AuthContext";
 import { getImprovedResume, getResumeDetails } from "../api/resumes";
 
@@ -42,11 +43,19 @@ export default function ResumeDetails() {
   if (error) return <p>Ошибка: {error}</p>;
 
   return (
-    <div>
-      <h1>{resume.title}</h1>
+    <div className={styles.container}>
+      <h1 className={`${styles.heading} ${styles.headingFadeIn}`}>
+        {resume.title}
+      </h1>
+
       <button onClick={logout}>Выйти</button>
-      <Link to={`/resumes/`}>Все резюме</Link>
-      <p>{resume.content}</p>
+
+      <Link className={styles.link} to="/resumes/">
+        Вернуться к списку резюме
+      </Link>
+
+      <p className={styles.content}>{resume.content}</p>
+
       <button onClick={improveResume}>Улучшить</button>
     </div>
   );

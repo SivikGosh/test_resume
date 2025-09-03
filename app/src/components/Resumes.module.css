@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+.heading {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #356fad;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  letter-spacing: 1px;
+}
+
+.headingFadeIn {
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 600px;
+  margin: 50px auto;
+  font-family: Arial, sans-serif;
+}
+
+button {
+  padding: 5px 69px;
+  background-color: #4983c1;
+  color: white;
+  font-size: 13px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+input {
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 13px;
+    margin: 0 7px 0 -3px;
+}
+
+form {
+    display: inline;
+    padding: 10px;
+    border-radius: 10px;
+    background: none;
+    box-shadow: none;
+}
+
+.addResumeWrapper {
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+}
+
+li {
+  margin-bottom: 10px;
+  background: #f1f1f1;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+li:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+a {
+  text-decoration: none;
+}
+
+a li {
+  color: #356fad;
+  font-weight: 500;
+}
+
+a li:hover {
+  text-decoration: underline;
+}

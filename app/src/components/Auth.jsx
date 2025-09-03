@@ -1,6 +1,7 @@
 import { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import styles from "./AuthForm.module.css";
 import { AuthContext } from '../contexts/AuthContext';
 import { registerUser } from '../api/auth';
 
@@ -18,7 +19,7 @@ export default function Auth() {
   const registerHandleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const data = await registerUser({ email, username, password });
+      await registerUser({ email, username, password });
       await login({grant_type: grantType, username: email, password});
       navigate('/resumes');
     } catch (err) {
@@ -37,21 +38,27 @@ export default function Auth() {
   };
 
   return (
-    <div>
-      <form onSubmit={registerHandleSubmit}>
-        <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-        <input type="username" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
-        <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-        <button type="submit">Register</button>
-        {error && <p>{error}</p>}
-      </form>
-      <div>или</div>
+    <div className={styles.container}>
+
+      <h1 className={`${styles.heading} ${styles.headingFadeIn}`}>Resumé Vault</h1>
+
       <form onSubmit={loginHandleSubmit}>
         <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
         <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
-        <button type="submit">Login</button>
+        <button type="submit">Авторизоваться</button>
         {error && <p>{error}</p>}
       </form>
+
+      <div className={styles.divider}>или</div>
+
+      <form onSubmit={registerHandleSubmit}>
+        <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+        <input type="text" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} />
+        <input type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} />
+        <button type="submit">Зарегистрироваться</button>
+        {error && <p>{error}</p>}
+      </form>
+
     </div>
   );
 }

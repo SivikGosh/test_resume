@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-import AddResume from "../components/AddResume";
+import AddResume from "./AddResume";
+import styles from "./Resumes.module.css";
 import { AuthContext } from "../contexts/AuthContext";
 import { getResumes } from "../api/resumes";
 
@@ -30,17 +31,19 @@ export default function Resumes() {
   if (error) return <p>Ошибка: {error}</p>;
 
   return (
-    <div>
-      <h1>Резюме</h1>
+    <div className={styles.container}>
+      <h1 className={`${styles.heading} ${styles.headingFadeIn}`}>Resumés</h1>
       <button onClick={logout}>Выйти</button>
-      <AddResume onAdd={data => setResumes(prev => [...prev, data])} />
+
+      <div className={styles.addResumeWrapper}>
+        <AddResume onAdd={data => setResumes(prev => [...prev, data])} />
+      </div>
+
       <ul>
         {resumes.map(resume => (
-          <li key={resume.id}>
             <Link to={`/resumes/${resume.id}`}>
-              {resume.title}
+              <li key={resume.id}>{resume.title}</li>
             </Link>
-          </li>
         ))}
       </ul>
     </div>
