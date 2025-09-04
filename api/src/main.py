@@ -28,6 +28,7 @@ app.include_router(auth_router)
 app.include_router(users_router)
 app.include_router(resumes_router)
 
+
 @app.get('/')
 async def init(db: AsyncSession = Depends(get_async_db)):
     try:
